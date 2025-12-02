@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Neon Login UI">
+    <meta property="og:description"
+        content="A modern neon-style login interface with glassmorphism and smooth animations.">
+    <meta property="og:image" content="neon-login-preview.png
+">
+    <meta property="og:type" content="website">
+    <meta name="description"
+        content="A modern neon-themed login UI built with HTML, CSS, and JavaScript. Includes glassmorphism effects, password toggle, animations, and responsive design.">
+    <title>Neon Login UI | Modern Glassmorphism Login Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="login-wrapper">
+        <div class="neon-card">
+            <h1 class="logo">Neon<span>Login</span></h1>
+            <form id="loginForm" class="form" autocomplete="off" novalidate>
+                <div class="input-group">
+                    <input id="email" name="email" type="text" required placeholder=" " />
+                    <label for="email">Email or Username</label>
+                </div>
+                <div class="input-group">
+                    <input id="password" name="password" type="password" required placeholder=" " />
+                    <label for="password">Password</label>
+                    <button type="button" class="show-pass" aria-label="Toggle password">Show</button>
+                </div>
+                <div class="actions">
+                    <label class="remember"><input type="checkbox" id="remember"> Remember me</label>
+                </div>
+                <button type="submit" class="btn neon-btn">Sign In</button>
+
+                <div class="options">
+                    <div class="or-sep"><span>or</span></div>
+                    <p class="opt-text">Don't have an account? <a href="#" class="option-link">Create one</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="page-footer">Made with ♥ by Azam San</div>
+    <script src="script.js"></script>
+</body>
+
+</html>

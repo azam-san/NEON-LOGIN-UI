@@ -1,0 +1,395 @@
+:root {
+	--bg: #0d1117;
+	--bg-alt: #0a0e1a;
+	--card: #070a10;
+	--card-light: #0f131c;
+	--accent: #00d9ff;
+	--accent-light: #00e5ff;
+	--accent-secondary: #0099cc;
+	--shadow-light: rgba(0, 217, 255, 0.1);
+	--shadow-dark: rgba(0, 0, 0, 0.7);
+	--shadow-soft: rgba(0, 217, 255, 0.05);
+	--text-dark: #e8eef5;
+	--text-light: #7a8fa0;
+}
+
+* {
+	box-sizing: border-box
+}
+
+html,
+body {
+	height: 100%
+}
+
+body {
+	margin: 0;
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: linear-gradient(135deg, #111820 0%, #0f1724 50%, #0a1120 100%);
+	color: var(--text-dark);
+	-webkit-font-smoothing: antialiased;
+	min-height: 100vh;
+}
+
+.bg {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background:
+		radial-gradient(circle at 30% 40%, rgba(0, 217, 255, 0.12), transparent 50%),
+		radial-gradient(circle at 70% 70%, rgba(0, 217, 255, 0.08), transparent 50%);
+	filter: blur(100px);
+}
+
+.login-wrapper {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	z-index: 1;
+	padding: 40px 20px
+}
+
+.neon-card {
+	width: 380px;
+	max-width: 96vw;
+	padding: 48px 40px;
+	border-radius: 28px;
+	background: linear-gradient(135deg, rgba(7, 10, 16, 0.99) 0%, rgba(5, 7, 12, 0.98) 100%);
+	box-shadow:
+		25px 25px 80px rgba(0, 0, 0, 0.8),
+		-15px -15px 50px rgba(0, 217, 255, 0.06),
+		inset 0 1px 20px rgba(0, 217, 255, 0.04),
+		inset 0 -1px 20px rgba(0, 0, 0, 0.6);
+	position: relative;
+	overflow: hidden;
+	border: 1px solid rgba(0, 217, 255, 0.1);
+	min-height: 520px;
+	backdrop-filter: blur(20px);
+}
+
+.neon-card:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg, rgba(0, 217, 255, 0.01) 0%, rgba(0, 0, 0, 0.2) 100%);
+	pointer-events: none
+}
+
+.logo {
+	font-weight: 800;
+	margin: 0 0 8px 0;
+	font-size: 28px;
+	letter-spacing: -0.02em;
+	color: var(--text-dark)
+}
+
+.logo span {
+	color: var(--accent);
+	background: linear-gradient(135deg, var(--accent), var(--accent-light));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text
+}
+
+.subtitle {
+	margin: 0 0 24px 0;
+	font-size: 13px;
+	color: var(--text-light)
+}
+
+.form {
+	display: block
+}
+
+.input-group {
+	position: relative;
+	margin: 18px 0
+}
+
+.input-group input {
+	width: 100%;
+	padding: 14px 44px 14px 16px;
+	border-radius: 14px;
+	border: 1.5px solid transparent;
+	background: linear-gradient(135deg, rgba(10, 13, 21, 0.85) 0%, rgba(7, 9, 15, 0.75) 100%);
+	color: var(--text-dark);
+	outline: none;
+	font-size: 14px;
+	transition: all 0.3s ease;
+	box-shadow: inset 4px 4px 12px rgba(0, 0, 0, 0.5), inset -4px -4px 12px rgba(0, 217, 255, 0.04)
+}
+
+.input-group input::placeholder {
+	color: transparent
+}
+
+.input-group input:hover {
+	border-color: rgba(0, 217, 255, 0.2);
+	box-shadow: inset 4px 4px 12px rgba(0, 0, 0, 0.45), inset -4px -4px 12px rgba(0, 217, 255, 0.08), 0 0 15px rgba(0, 217, 255, 0.06)
+}
+
+.input-group input:focus {
+	box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.6), inset -3px -3px 8px rgba(0, 217, 255, 0.1), 0 0 0 4px rgba(0, 217, 255, 0.1);
+	border-color: var(--accent);
+	background: linear-gradient(135deg, rgba(10, 13, 21, 0.95) 0%, rgba(7, 9, 15, 0.85) 100%)
+}
+
+.input-group label {
+	position: absolute;
+	left: 16px;
+	top: 14px;
+	font-size: 13px;
+	color: var(--text-light);
+	pointer-events: none;
+	transition: all .2s ease;
+	font-weight: 500
+}
+
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
+	transform: translateY(-14px) scale(0.85);
+	color: var(--accent);
+	font-weight: 600
+}
+
+.show-pass {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 7px 10px;
+	border-radius: 10px;
+	border: 1px solid rgba(0, 217, 255, 0.25);
+	background: linear-gradient(135deg, rgba(10, 13, 21, 0.7), rgba(7, 9, 15, 0.5));
+	color: var(--accent);
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 700;
+	transition: all 0.2s ease;
+	box-shadow: inset 1px 1px 3px rgba(0, 217, 255, 0.08), inset -1px -1px 3px rgba(0, 0, 0, 0.4)
+}
+
+.show-pass:hover {
+	background: linear-gradient(135deg, rgba(0, 217, 255, 0.12), rgba(0, 217, 255, 0.05));
+	border-color: rgba(0, 217, 255, 0.45);
+	box-shadow: inset 1px 1px 3px rgba(0, 217, 255, 0.12), inset -1px -1px 3px rgba(0, 0, 0, 0.45), 0 0 12px rgba(0, 217, 255, 0.15);
+	transform: translateY(-50%) scale(1.05);
+}
+
+.show-pass:active {
+	transform: translateY(-50%) scale(0.95);
+}
+
+.actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 16px 0 24px
+}
+
+.remember {
+	color: var(--text-light);
+	font-size: 13px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	cursor: pointer
+}
+
+.remember input {
+	accent-color: var(--accent);
+	cursor: pointer
+}
+
+.forgot {
+	color: var(--accent);
+	font-size: 13px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s ease
+}
+
+.forgot:hover {
+	color: var(--accent-light)
+}
+
+.btn {
+	width: 100%;
+	padding: 13px 14px;
+	border-radius: 12px;
+	border: none;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 14px;
+	transition: all 0.3s ease
+}
+
+.neon-btn {
+	margin-top: 12px
+}
+
+.neon-btn {
+	position: relative;
+	background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 153, 204, 0.1) 100%);
+	color: var(--accent);
+	box-shadow:
+		inset 0 1px 2px rgba(0, 217, 255, 0.15),
+		inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+		0 8px 20px rgba(0, 0, 0, 0.3);
+	border: 1.5px solid rgba(0, 217, 255, 0.25);
+	transition: all 0.3s ease;
+	letter-spacing: 0.3px;
+	font-weight: 700;
+}
+
+.neon-btn::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 12px;
+	background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), transparent);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+
+.neon-btn:hover::after {
+	opacity: 1;
+}
+
+.neon-btn:hover {
+	border-color: rgba(0, 217, 255, 0.4);
+	box-shadow:
+		inset 0 1px 2px rgba(0, 217, 255, 0.2),
+		inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+		0 12px 30px rgba(0, 217, 255, 0.15);
+	transform: translateY(-2px);
+	background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(0, 153, 204, 0.12) 100%);
+}
+
+.neon-btn:active {
+	transform: translateY(0);
+	box-shadow:
+		inset 0 2px 4px rgba(0, 0, 0, 0.3),
+		inset 0 -1px 2px rgba(0, 217, 255, 0.1),
+		0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+	margin-top: 16px;
+	font-size: 13px;
+	color: var(--text-light);
+	text-align: center
+}
+
+.footer a {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s ease
+}
+
+.footer a:hover {
+	color: var(--accent-light)
+}
+
+/* Options below sign-in */
+.options {
+	margin-top: 18px;
+	text-align: center
+}
+
+.or-sep {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: center;
+	margin-bottom: 12px
+}
+
+.or-sep::before,
+.or-sep::after {
+	content: '';
+	height: 1px;
+	background: rgba(0, 217, 255, 0.15);
+	flex: 1
+}
+
+.or-sep span {
+	font-size: 12px;
+	color: var(--text-light);
+	padding: 0 8px;
+	font-weight: 500
+}
+
+.opt-text {
+	margin: 8px 0;
+	color: var(--text-light);
+	font-size: 13px
+}
+
+.option-link {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s ease
+}
+
+.option-link:hover {
+	color: var(--accent-light)
+}
+
+/* small responsive */
+@media (max-width:420px) {
+	.neon-card {
+		padding: 32px 24px
+	}
+
+	.logo {
+		font-size: 22px
+	}
+
+	.input-group input {
+		padding: 12px 14px
+	}
+}
+
+.shake {
+	animation: shake .36s ease
+}
+
+@keyframes shake {
+	0% {
+		transform: translateX(0)
+	}
+
+	25% {
+		transform: translateX(-6px)
+	}
+
+	50% {
+		transform: translateX(6px)
+	}
+
+	75% {
+		transform: translateX(-4px)
+	}
+
+	100% {
+		transform: translateX(0)
+	}
+}
+
+.page-footer {
+	position: fixed;
+	bottom: 5px;
+	width: 100%;
+	text-align: center;
+	font-size: 10px;
+	color: #aaa;
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	pointer-events: none;
+}
